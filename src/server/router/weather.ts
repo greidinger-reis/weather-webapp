@@ -25,7 +25,8 @@ export const weatherRouter = createRouter().query("getCapitalsCurrentWeather", {
         capitalCitiesWeatherData.push(weather);
       });
     });
-
+    console.log(capitalCitiesWeatherData);
+    
     return capitalCitiesWeatherData;
   },
 });

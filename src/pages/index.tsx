@@ -6,7 +6,8 @@ import superjson from "superjson";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { createSSGHelpers } from "@trpc/react/ssg";
 import { appRouter } from "../server/router";
-import { CityMinMax } from "../types/CityWeatherMinMax";
+import { CityMinMax } from "../types/CityWeather";
+import { trpc } from "../utils/trpc";
 
 export const getStaticProps: GetStaticProps<{
   capitalsCitiesWeatherData: CityMinMax[];
@@ -30,6 +31,10 @@ export const getStaticProps: GetStaticProps<{
 const Home = ({
   capitalsCitiesWeatherData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { data } = trpc.useQuery([
+    "weather.getCityDetailedWeather",
+    { city: "Ponta Grossa" },
+  ]);
   return (
     <>
       <Head>
@@ -55,6 +60,12 @@ const Home = ({
                 ))}
               </TableView>
             </div>
+            <button
+              onClick={() => console.log(data)}
+              className="rounded bg-green-500 px-4 py-2"
+            >
+              teste
+            </button>
           </div>
         </main>
       </div>

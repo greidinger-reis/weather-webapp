@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc",
+    "typecheck:watch": "tsc -w"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

@@ -47,7 +47,7 @@ const Home = ({
           </h1>
           {city ? <CityWeatherCard city={city} /> : null}
           <FormView setCity={setCity} />
-          <div className="mt-4 flex flex-col gap-4 md:w-1/2 xs:mt-0">
+          <div className="mt-8 flex flex-col gap-4 md:w-1/2 xs:mt-0">
             <h2 className="ml-4 text-3xl font-medium text-white lg:ml-16 xl:ml-32 2xl:ml-48">
               Capitais
             </h2>

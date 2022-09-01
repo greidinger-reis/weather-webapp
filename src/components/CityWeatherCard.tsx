@@ -58,7 +58,7 @@ const CityWeatherCard: FC<{ city: string }> = ({ city }) => {
           Vento <span className="font-bold">{Math.round(wind)}km/h</span>
         </p>
         <p>
-          Humidade <span className="font-bold">{humidity}%</span>
+          Umidade <span className="font-bold">{humidity}%</span>
         </p>
       </div>
       <div className="mt-4 flex gap-2">

@@ -1,10 +1,13 @@
-# Simple Weather App
+# Simple weather app - Aplicativo simples de clima
 
-## Description
+![app screenshot](https://imgur.com/a/k3crHKM)
 
-This is a simple weather app that uses the OpenWeatherMap API to get the current weather.
+## Description - Descrição
 
-## Technologies Used
+:uk: This is a simple weather app that uses the OpenWeatherMap API to get the current weather and forecast for a city.
+:brazil: Este é um aplicativo simples de clima que usa a API OpenWeatherMap para obter o clima atual e a previsão para uma cidade.
+
+## Technologies Used - Tecnologias Usadas
 
 - [Next.js](https://nextjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -13,17 +16,18 @@ This is a simple weather app that uses the OpenWeatherMap API to get the current
 - [OpenWeatherMap API](https://openweathermap.org/api)
 - [Axios](https://axios-http.com/)
 
-## Details
+## Implementation details - Detalhes de implementação
 
-This project uses Axios to fetch the weather data from the OpenWeatherMap API, and TRPC to make the API interact with the front-end.
+:uk: This project uses Axios to fetch the weather data from the OpenWeatherMap API, and TRPC to make the API type-safe and interact directly with the front-end.
+:brazil: Este projeto usa Axios para buscar os dados do clima da API OpenWeatherMap e TRPC para fazer a segurança dos tipos da API e interagir diretamente com o front-end.
 
-## Installation
+## Installation - Instalação
 
 ```bash
 npm install
 ```
 
-## Usage
+## Usage - Uso
 
 ```bash
 npm run dev | npm start

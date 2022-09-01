@@ -42,7 +42,7 @@ const Home = ({
       </Head>
       <div className="bg-gradient-to-b from-gray-900 to-gray-700">
         <main className="mx-auto flex h-screen flex-col xs:container xs:items-center xs:gap-8 xs:py-16">
-          <h1 className="bg-gray-900 p-4 text-4xl font-bold text-white drop-shadow-lg xs:p-0">
+          <h1 className="bg-gray-900 p-4 text-center text-4xl font-bold text-white drop-shadow-lg xs:p-0">
             Previsão do tempo
           </h1>
           {city ? <CityWeatherCard city={city} /> : null}

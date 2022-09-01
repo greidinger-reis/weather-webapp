@@ -83,7 +83,7 @@ export const weatherRouter = createRouter()
         const foreCastDays = result.data.list as [];
         const weekDaysForecast = foreCastDays.map(
           (day: { dt: number; temp: { min: number; max: number } }) => {
-            const date = new Date(day.dt * 1000).toLocaleDateString();
+            const date = new Date(day.dt * 1000);
             const { min, max }: { min: number; max: number } = day.temp;
             return { date, min, max };
           }

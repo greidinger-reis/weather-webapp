@@ -15,7 +15,7 @@ export interface CityDetailedWeather {
   };
   forecast: {
     weekDaysForecast: {
-      date: string;
+      date: Date;
       min: number;
       max: number;
     }[];

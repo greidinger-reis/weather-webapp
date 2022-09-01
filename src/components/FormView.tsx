@@ -1,18 +1,27 @@
 import { MagnifyingGlass } from "phosphor-react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 
-const FormView = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data: any) => {
-    console.log("hello");
+interface FormData {
+  cityName: string;
+}
+
+const FormView: FC<{ setCity: (cityName: string) => void }> = ({ setCity }) => {
+  const { register, handleSubmit } = useForm<FormData>();
+  const onSubmit = (data: FormData) => {
+    //remove accents from data.cityName
+    const cityName = data.cityName
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    setCity(cityName);
   };
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex items-center rounded outline-blue-900 focus-within:outline"
+      className="mt-4 flex w-[95vw] max-w-[400px] items-center self-center rounded outline-amber-600 focus-within:outline xs:mt-0"
     >
       <input
-        className="w-fit rounded px-4 py-2 outline-none"
+        className="w-full rounded px-4 py-2 outline-none"
         type="text"
         placeholder="Insira aqui o nome da cidade"
         {...register("cityName", { required: true })}

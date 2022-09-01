@@ -7,9 +7,9 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { createSSGHelpers } from "@trpc/react/ssg";
 import { appRouter } from "../server/router";
 import { CityMinMax } from "../types/CityWeather";
-import { trpc } from "../utils/trpc";
 import CityWeatherCard from "../components/CityWeatherCard";
 import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export const getStaticProps: GetStaticProps<{
   capitalsCitiesWeatherData: CityMinMax[];
@@ -34,6 +34,7 @@ const Home = ({
   capitalsCitiesWeatherData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [city, setCity] = useState<string>();
+  const [parent] = useAutoAnimate<HTMLElement>();
   return (
     <>
       <Head>
@@ -41,7 +42,10 @@ const Home = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-gradient-to-b from-gray-900 to-gray-700">
-        <main className="mx-auto flex h-screen flex-col xs:container xs:items-center xs:gap-8 xs:py-16">
+        <main
+          ref={parent}
+          className="mx-auto flex h-screen flex-col xs:container xs:items-center xs:gap-8 xs:py-16"
+        >
           <h1 className="bg-gray-900 p-4 text-center text-4xl font-bold text-white drop-shadow-lg xs:p-0">
             Previsão do tempo
           </h1>

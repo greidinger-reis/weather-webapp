@@ -34,7 +34,7 @@ const CityWeatherCard: FC<{ city: string }> = ({ city }) => {
   const { weekDaysForecast } = data.forecast;
 
   return (
-    <div className="flex w-full flex-col items-center bg-white py-4 px-4 text-gray-900 shadow-inner xs:w-fit xs:rounded xs:px-8">
+    <div className="flex w-full flex-col items-center bg-white py-4 px-4 text-gray-900 shadow-inner transition-all ease-in-out xs:w-fit xs:rounded xs:px-8">
       <div className="pb-2">
         <p className="text-center text-sm">
           {name}, {country}

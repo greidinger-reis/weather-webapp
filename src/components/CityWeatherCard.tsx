@@ -14,7 +14,7 @@ const CityWeatherCard: FC<{ city: string }> = ({ city }) => {
   if (isLoading) return <Spinner />;
   if (!data)
     return (
-      <span className="text-2xl font-bold text-white">
+      <span className="text-2xl font-bold text-white self-center">
         Cidade não encontrada.
       </span>
     );

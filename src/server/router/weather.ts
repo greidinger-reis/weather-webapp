@@ -1,10 +1,11 @@
 import {
+  City,
   CityDetailedWeather,
   currentWeatherData,
 } from "./../../types/CityWeather";
 import axios, { AxiosResponse } from "axios";
 import { env } from "../../env/server.mjs";
-import { proBaseUrl } from "../../utils/constants";
+import { baseGeoUrl, proBaseUrl } from "../../utils/constants";
 import { CityMinMax } from "../../types/CityWeather";
 import { capitalCities, defaultParams } from "./../../utils/constants";
 import { createRouter } from "./context";
@@ -21,6 +22,11 @@ const getDetailedWeatherByCity = (city: string) => {
     `${proBaseUrl}/forecast/daily?q=${city},BR${defaultParams}&APPID=${env.NEXT_PUBLIC_OWM_API_KEY}&cnt=6`
   );
 };
+
+const getCities = (query: string) =>
+  axios.get(
+    `${baseGeoUrl}/direct?q=${query},BR&limit=3&appid=${env.NEXT_PUBLIC_OWM_API_KEY}`
+  );
 
 export const weatherRouter = createRouter()
   .query("getCapitalsCurrentWeather", {
@@ -67,14 +73,12 @@ export const weatherRouter = createRouter()
           const description: string = result.data.weather[0].description;
           const wind: number = result.data.wind.speed;
           const name: string = result.data.name;
-          const country: string = result.data.sys.country;
           return {
             temp_now,
             feels_like,
             humidity,
             description,
             wind,
-            country,
             name,
           };
         });
@@ -107,6 +111,26 @@ export const weatherRouter = createRouter()
         };
 
         return data;
+      });
+    },
+  })
+  .query("getCities", {
+    input: z.object({
+      query: z.string().min(1),
+    }),
+    async resolve({ input }) {
+      const { query } = input;
+      if (!query)
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Query is required",
+        });
+
+      return await getCities(query).then((result) => {
+        const cities: City[] = result.data.map((city: City) => {
+          return { name: city.name };
+        });
+        return cities;
       });
     },
   });

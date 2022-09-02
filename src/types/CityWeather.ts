@@ -1,13 +1,13 @@
-export interface CityMinMax {
+export interface City {
   name: string;
+}
+export interface CityMinMax extends City {
   temp_max: number;
   temp_min: number;
 }
-
 export interface CityDetailedWeather {
   current: CityMinMax & {
     temp_now: number;
-    country: string;
     feels_like: number;
     wind: number;
     humidity: number;

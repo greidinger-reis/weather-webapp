@@ -8,19 +8,18 @@ import Spinner from "./Spinner";
 const CityWeatherCard: FC<{ city: string }> = ({ city }) => {
   const { data, isLoading } = trpc.useQuery([
     "weather.getCityDetailedWeather",
-    { city },
+    { city: city.normalize("NFD").replace(/[\u0300-\u036f]/g, "") },
   ]);
 
   if (isLoading) return <Spinner />;
   if (!data)
     return (
-      <span className="text-2xl font-bold text-white self-center">
+      <span className="self-center text-2xl font-bold text-white">
         Cidade não encontrada.
       </span>
     );
 
   const {
-    country,
     description,
     feels_like,
     humidity,
@@ -36,9 +35,7 @@ const CityWeatherCard: FC<{ city: string }> = ({ city }) => {
   return (
     <div className="flex w-full flex-col items-center bg-white py-4 px-4 text-gray-900 shadow-inner transition-all ease-in-out xs:w-fit xs:rounded xs:px-8">
       <div className="pb-2">
-        <p className="text-center text-sm">
-          {name}, {country}
-        </p>
+        <p className="text-center text-sm">{name}</p>
         <p className="text-3xl font-bold">
           {Math.round(temp_now)}°C{" "}
           <span className="capitalize">{description}</span>

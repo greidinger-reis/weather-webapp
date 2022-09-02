@@ -1,6 +1,7 @@
 # Simple weather app - Aplicativo simples de clima
 
-![app screenshot](/public/screenshot.png)
+
+![app gif](https://user-images.githubusercontent.com/62309738/188205557-6ba3f0af-2508-4d2f-a975-fd7e2d2c9123.gif)
 
 ## Description - Descrição
 

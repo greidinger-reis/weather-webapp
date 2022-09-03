@@ -25,7 +25,7 @@ const FormView: FC<FormViewProps> = ({ setCity }) => {
 
   const { register, handleSubmit } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
-    //remove accents from data.cityName
+    setShowDropdown(false)
     const cityName = data.cityName;
 
     setCity(cityName);

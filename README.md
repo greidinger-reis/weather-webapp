@@ -20,7 +20,7 @@ Este é um aplicativo simples de clima que usa a API OpenWeatherMap para obter o
 
 ## Detalhes de implementação
 
-:brazil: Este projeto usa Axios para buscar os dados do clima da API OpenWeatherMap e TRPC para fazer a segurança dos tipos da API e interagir diretamente com o front-end.
+Este projeto usa Axios para buscar os dados do clima da API OpenWeatherMap e TRPC para fazer a segurança dos tipos da API e interagir diretamente com o front-end.
 
 ## Instalação
 

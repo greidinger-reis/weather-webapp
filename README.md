@@ -1,18 +1,15 @@
-# Simple weather app - Aplicativo simples de clima
+# Aplicativo simples de clima
 
 
 ![app gif](https://user-images.githubusercontent.com/62309738/188205557-6ba3f0af-2508-4d2f-a975-fd7e2d2c9123.gif)
 
-## Description - Descrição
+## Descrição
 
-:uk: This is a simple weather app that uses the OpenWeatherMap API to get the current weather and forecast for a city. (only brazillian cities are supported, but you can configure the API request url country code in `src/server/router/weather.ts`)
+Este é um aplicativo simples de clima que usa a API OpenWeatherMap para obter o clima atual e a previsão para uma cidade.
 
+[Teste ativo](https://weather-webapp-pi.vercel.app/)
 
-:brazil: Este é um aplicativo simples de clima que usa a API OpenWeatherMap para obter o clima atual e a previsão para uma cidade.
-
-[Working deploy in Vercel - Deploy funcional na Vercel](https://weather-webapp-pi.vercel.app/)
-
-## Technologies Used - Tecnologias Usadas
+## Tecnologias Usadas
 
 - [Next.js](https://nextjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -21,26 +18,19 @@
 - [OpenWeatherMap API](https://openweathermap.org/api)
 - [Axios](https://axios-http.com/)
 
-## Implementation details - Detalhes de implementação
-
-:uk: This project uses Axios to fetch the weather data from the OpenWeatherMap API, and TRPC to make the API type-safe and interact directly with the front-end.
-
+## Detalhes de implementação
 
 :brazil: Este projeto usa Axios para buscar os dados do clima da API OpenWeatherMap e TRPC para fazer a segurança dos tipos da API e interagir diretamente com o front-end.
 
-## Installation - Instalação
+## Instalação
 
 ```bash
 npm install
-```
 
-:uk: Rename `.env-example` to `.env` and fill in with your OpenWeatherMap API key.
-
-
-:brazil: Renomeie `.env-example` para `.env` e preencha com sua chave da API OpenWeatherMap.
+Renomeie `.env-example` para `.env` e preencha com sua chave da API OpenWeatherMap.
 
 
-## Usage - Uso
+## Uso
 
 ```bash
 npm run dev | npm start
